@@ -15,18 +15,18 @@ public struct TiseFormatterPlugin: BuildToolPlugin {
             return []
         }
         return [
+            format(
+                inputFiles: sourceTarget.sourceFiles(withSuffix: "swift").map(\.path),
+                packageDirectory: context.package.directory,
+                workingDirectory: context.pluginWorkDirectory,
+                tool: try context.tool(named: "swiftformat")
+            ),
             lint(
                 inputFiles: sourceTarget.sourceFiles(withSuffix: "swift").map(\.path),
                 packageDirectory: context.package.directory,
                 workingDirectory: context.pluginWorkDirectory,
                 tool: try context.tool(named: "swiftlint")
             ),
-            format(
-                inputFiles: sourceTarget.sourceFiles(withSuffix: "swift").map(\.path),
-                packageDirectory: context.package.directory,
-                workingDirectory: context.pluginWorkDirectory,
-                tool: try context.tool(named: "swiftformat")
-            )
         ].compactMap { $0 }
     }
 
