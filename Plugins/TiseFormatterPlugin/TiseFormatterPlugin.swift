@@ -111,17 +111,17 @@ extension TiseFormatterPlugin: XcodeBuildToolPlugin {
             .map(\.path)
 
         return [
-            lint(
-                inputFiles: inputFilePaths,
-                packageDirectory: context.xcodeProject.directory,
-                workingDirectory: context.pluginWorkDirectory,
-                tool: try context.tool(named: "swiftlint")
-            ),
             format(
                 inputFiles: inputFilePaths,
                 packageDirectory: context.xcodeProject.directory,
                 workingDirectory: context.pluginWorkDirectory,
                 tool: try context.tool(named: "swiftformat")
+            ),
+            lint(
+                inputFiles: inputFilePaths,
+                packageDirectory: context.xcodeProject.directory,
+                workingDirectory: context.pluginWorkDirectory,
+                tool: try context.tool(named: "swiftlint")
             )
         ].compactMap { $0 }
     }
