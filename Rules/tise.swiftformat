@@ -5,7 +5,6 @@
 --beforemarks
 --binarygrouping 4,8
 --categorymark "MARK: %c"
---classthreshold 0
 --closingparen balanced
 --closurevoid remove
 --commas always
@@ -14,7 +13,6 @@
 --elseposition same-line
 --emptybraces spaced
 --enumnamespaces always
---enumthreshold 20
 --exponentcase lowercase
 --exponentgrouping disabled
 --extensionacl on-declarations
@@ -47,7 +45,6 @@
 --nowrapoperators
 --octalgrouping 4,8
 --operatorfunc spaced
---organizetypes actor,class,enum,extension,struct
 --patternlet inline
 --ranges spaced
 --redundanttype inferred
@@ -58,7 +55,6 @@
 --smarttabs enabled
 --someAny false
 --stripunusedargs closure-only
---structthreshold 20
 --swiftversion 5.8
 --tabwidth unspecified
 --throwcapturing
