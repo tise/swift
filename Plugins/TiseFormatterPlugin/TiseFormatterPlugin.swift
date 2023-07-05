@@ -15,12 +15,13 @@ public struct TiseFormatterPlugin: BuildToolPlugin {
             return []
         }
         return [
-            format(
-                inputFiles: sourceTarget.sourceFiles(withSuffix: "swift").map(\.path),
-                packageDirectory: context.package.directory,
-                workingDirectory: context.pluginWorkDirectory,
-                tool: try context.tool(named: "swiftformat")
-            ),
+            // Disable formatting
+//            format(
+//                inputFiles: sourceTarget.sourceFiles(withSuffix: "swift").map(\.path),
+//                packageDirectory: context.package.directory,
+//                workingDirectory: context.pluginWorkDirectory,
+//                tool: try context.tool(named: "swiftformat")
+//            ),
             lint(
                 inputFiles: sourceTarget.sourceFiles(withSuffix: "swift").map(\.path),
                 packageDirectory: context.package.directory,
@@ -111,12 +112,13 @@ extension TiseFormatterPlugin: XcodeBuildToolPlugin {
             .map(\.path)
 
         return [
-            format(
-                inputFiles: inputFilePaths,
-                packageDirectory: context.xcodeProject.directory,
-                workingDirectory: context.pluginWorkDirectory,
-                tool: try context.tool(named: "swiftformat")
-            ),
+            // Disable formatting
+//            format(
+//                inputFiles: inputFilePaths,
+//                packageDirectory: context.xcodeProject.directory,
+//                workingDirectory: context.pluginWorkDirectory,
+//                tool: try context.tool(named: "swiftformat")
+//            ),
             lint(
                 inputFiles: inputFilePaths,
                 packageDirectory: context.xcodeProject.directory,
